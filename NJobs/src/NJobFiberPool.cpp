@@ -6,6 +6,8 @@
 std::shared_ptr<NJobs::NJobFiber> NJobs::NJobFiberPool::GetFiber()
 
 {
+    std::lock_guard<std::mutex> lock(m_mutex);
+
     if (m_fibers.empty())
     {
         return std::make_shared<NJobFiber>();
@@ -20,5 +22,6 @@ std::shared_ptr<NJobs::NJobFiber> NJobs::NJobFiberPool::GetFiber()
 
 void NJobs::NJobFiberPool::ReturnFiber(std::shared_ptr<NJobFiber> fiber)
 {
+    std::lock_guard<std::mutex> lock(m_mutex);
     m_fibers.push(fiber);
 }

@@ -80,8 +80,11 @@ NJobs::NJobFiberHandle NJobs::NJobSystem::GetRunnableFiber()
         NJobFiberHandle fiberHandle(fiber, m_fiberPool);
         job->SetCurrentFiber(fiberHandle);
         fiberHandle->AssignJob(job);
+
         return fiberHandle;
     }
+
+    return NJobFiberHandle();
 }
 
 void NJobs::NJobSystem::RunJobSystem(const std::shared_ptr<NJobThread> &jobThread,

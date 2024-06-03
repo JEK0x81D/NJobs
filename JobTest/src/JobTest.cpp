@@ -1,8 +1,6 @@
 
 #include <iostream>
 #include <memory>
-#include <memory>
-#include <memory>
 
 #include "../../NJobs/src/NJob.h"
 #include "../../NJobs/src/NJobSystem.h"

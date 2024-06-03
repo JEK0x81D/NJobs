@@ -49,6 +49,7 @@ namespace NJobs
     // Handle for fibers. When fiber is complete (job is finished), it will return to pool.
     // In the case that a fiber is incomplete (job has yielded), it will not be destroyed, and should be resumed later
     // when the counter that stops it is decremented.
+    // TODO: Move the return to pool into NJob?
     class NJobFiberHandle
     {
     public:
@@ -79,7 +80,7 @@ namespace NJobs
                 m_fiber = std::move(other.m_fiber);
                 m_pool = std::move(other.m_pool);
             }
-        
+
             return *this;
         }
 

@@ -43,7 +43,7 @@ void NJobs::NJobFiber::FiberFunction(void *parameter)
     {
         if (fiber->m_job)
         {
-            // fiber->m_job->Execute();
+            fiber->m_job->Execute();
             fiber->m_job->Finish();
             fiber->m_job = nullptr;
         }

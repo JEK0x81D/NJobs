@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <memory>
+#include <mutex>
 #include <stack>
 
 namespace NJobs
@@ -17,5 +18,6 @@ namespace NJobs
 
     private:
         std::stack<std::shared_ptr<NJobFiber>> m_fibers;
+        std::mutex m_mutex;
     };
 };
